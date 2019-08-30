@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "alias": ["www.gmaiolo.com"],
+  "routes": [
+    {
+      "src": "index.html",
+      "status": 301,
+      "headers": { "Location": "https://gmaiolo.com/$1" }
+    }
+  ]
+}
