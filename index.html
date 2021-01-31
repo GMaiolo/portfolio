@@ -1,77 +1,178 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <meta name="description" content="I try to make people's life better with software."/>
-  <meta name="google-site-verification" content="hEzAEtqe-HBDJ43nmefHfWSaI2ubf4bPnxaD5-w8IfM"/>
-  <link rel="shortcut icon" href="/favicon.ico">
-  <title>Guillermo Maiolo</title>
-  <link href="https://fonts.googleapis.com/css?family=Rubik:300,500&display=swap" rel="stylesheet">
-  <!-- styles -->
-  <style>
-    :root {
-      --accent-color: rgba(52, 131, 250, 0.5);
-      --bg-color: #1f2124;
-      --text-color: #e7e7e7;
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta
+      name="description"
+      content="I try to make people's life better with software."
+    />
+    <meta
+      name="google-site-verification"
+      content="hEzAEtqe-HBDJ43nmefHfWSaI2ubf4bPnxaD5-w8IfM"
+    />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <title>Guillermo Maiolo</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Rubik:300,500&display=swap"
+      rel="stylesheet"
+    />
+    <!-- styles -->
+    <style>
+      html,
+      body {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: black;
+        padding: 0;
+        margin: 0;
+        color: white;
+        font-family: Rubik, ui-sans-serif, system-ui, -apple-system, system-ui,
+          "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+          "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+          "Noto Color Emoji";
+        font-size: 1rem;
+      }
+
+      #home {
+        background: linear-gradient(to right bottom, white 50%, black 50%);
+        margin: auto;
+        position: relative;
+        height: 100%;
+        width: 100%;
+        background-color: black;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 0 1rem;
+      }
+
+      * {
+        user-select: none;
+        color: white;
+        mix-blend-mode: difference;
+      }
+
+      ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      button {
+        background: none;
+        border: none;
+        padding: 0;
+        font-size: inherit;
+        font-family: inherit;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="home">
+      <ul style="position: absolute; top: 1rem; left: 2rem; display: flex">
+        <li style="margin-right: 0.75rem">
+          <a href="https://mercadotrack.com" target="_blank" rel="noopener"
+            >MercadoTrack</a
+          >
+        </li>
+        <li>
+          <a href="https://s33d.art/" target="_blank" rel="noopener">S33D</a>
+        </li>
+      </ul>
+      <button
+        id="toggle-btn"
+        style="position: absolute; top: 1rem; right: 2rem; cursor: pointer"
+        title="Play color animation"
+      >
+        Play
+      </button>
+      <p
+        style="
+          line-height: 1;
+          font-size: 4rem;
+          font-weight: bold;
+          filter: drop-shadow(0.05em 0.05em green);
+          margin: 0;
+        "
+      >
+        GMAIOLO
+      </p>
+      <p style="font-size: 1.125rem; line-height: 1.75rem">
+        I try to make people's life better with software.
+      </p>
+      <ul style="position: absolute; bottom: 1rem; right: 2rem; display: flex">
+        <li style="margin-right: 0.75rem">
+          <a href="https://github.com/GMaiolo" target="_blank" rel="noopener"
+            >GitHub</a
+          >
+        </li>
+        <li style="margin-right: 0.75rem">
+          <a href="https://stackoverflow.com/users/3916621/gmaiolo"
+            >Stackoverflow</a
+          >
+        </li>
+        <li style="margin-right: 0.75rem">
+          <a href="https://twitter.com/_gmaiolo" target="_blank" rel="noopener"
+            >Twitter</a
+          >
+        </li>
+        <li style="margin-right: 0.75rem">
+          <a
+            href="https://www.linkedin.com/in/GMaiolo"
+            target="_blank"
+            rel="noopener"
+            >LinkedIn</a
+          >
+        </li>
+        <li style="margin-right: 0.75rem">
+          <a
+            href="https://www.instagram.com/g.maiolo"
+            target="_blank"
+            rel="noopener"
+            >Instagram</a
+          >
+        </li>
+        <li>
+          <a
+            href="mailto:guille.maiolo@gmail.com"
+            target="_blank"
+            rel="noopener"
+            >Email</a
+          >
+        </li>
+      </ul>
+    </div>
+  </body>
+  <script>
+    const home = document.getElementById("home");
+    const toggleBtn = document.getElementById("toggle-btn");
+
+    const randomColor = () => Math.floor(Math.random() * 16777215).toString(16);
+    const startAnimation = () => setInterval(updateColors, 1500);
+    let animationInterval = null;
+
+    function updateColors() {
+      const colorTop = randomColor();
+      const colorBot = randomColor();
+      home.style.background = `linear-gradient(to right bottom, #${colorTop} 50%, #${colorBot} 50%)`;
     }
-    body {
-      display: flex;
-      align-content: center;
-      justify-content: center;
-      font-family: 'Rubik', 'Open Sans', 'Helvetica Neue', sans-serif;
-      font-size: calc(10px + 0.3vw);
-      -webkit-font-smoothing: antialiased;
-      padding: 5vh;
-      text-align: left;
-      background-color: var(--bg-color);
-      color: var(--text-color);
-    }
-    h1 {
-      font-size: 4.5em;
-      font-weight: 500;
-      margin-bottom: 0;
-    }
-    h2,
-    p {
-      font-size: 1.6em;
-      font-weight: 300;
-      line-height: 1.4;
-      max-width: 27em;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    h2 {
-      font-weight: 500;
-      font-size: 2.2em;
-    }
-    a {
-      text-decoration: none;
-      color: #dfdfdf;
-      background: linear-gradient(
-        to bottom, var(--accent-color) 0%,
-        var(--accent-color) 100%
-      );
-      background-position: 0 100%;
-      background-repeat: repeat-x;
-      background-size: 4px 12px;
-      transition: background-size .2s cubic-bezier(0.55, .8, .13, 1);
-    }
-    a:hover {
-      background-size: 4px 50px;
-    }
-  </style>
-</head>
-<body>
-  <section>
-    <h1>Hello.</h1>
-    <h2>I am Guillermo Maiolo.</h2>
-    <p>I try to make people's life better with software.</p>
-    <p>Most of my work is open source and publicly available on <a href="https://github.com/GMaiolo" target="_blank" rel="noopener">GitHub</a>. I also like to answer sporadically in <a href="https://stackoverflow.com/users/3916621/gmaiolo">Stackoverflow</a>.</p>
-    <p>I plan to create a blog soon, in the meantime you can follow me on <a href="https://twitter.com/_gmaiolo" target="_blank" rel="noopener">Twitter</a> and <a href="https://www.instagram.com/g.maiolo" target="_blank" rel="noopener">Instagram</a>, contact me in <a href="https://www.linkedin.com/in/GMaiolo" target="_blank" rel="noopener">LinkedIn</a>, or just send me an <a href="mailto:guille.maiolo@gmail.com" target="_blank" rel="noopener">Email</a>.</p>
-    <p>I like to do generative art in a project called <a href="https://s33d.art/" target="_blank" rel="noopener">S33D</a> and my main side-project is <a href="https://mercadotrack.com" target="_blank" rel="noopener">MercadoTrack</a>.</p>
-    <p>Apart from programming I enjoy rain, long walks, drinking tea, philosophy, books, video games and building computers.</p>
-  </section>
-</body>
+
+    toggleBtn.addEventListener("click", () => {
+      if (toggleBtn.innerText.toLowerCase() === "pause") {
+        clearInterval(animationInterval);
+        toggleBtn.innerText = "Play";
+        animationInterval = null;
+      } else {
+        toggleBtn.innerText = "Pause";
+        updateColors();
+        animationInterval = startAnimation();
+      }
+    });
+  </script>
 </html>
