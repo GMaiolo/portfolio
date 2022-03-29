@@ -1,0 +1,14 @@
+{
+  "rewrites": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "ig.gmaiolo.com"
+        }
+      ],
+      "destination": "https://igdownload.xyz/:path*"
+    }
+  ]
+}
